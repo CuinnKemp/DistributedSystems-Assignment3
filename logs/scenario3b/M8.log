@@ -1,0 +1,144 @@
+Starting Paxos Member: M8 with profile: RELIABLE
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M8 listening on port 9008
+[main] Node ready. Type a value to propose:
+[acceptLoop]M8 accepted connection from /127.0.0.1:45214
+[onPrepare] Received PREPARE from M2 with proposalNumber=-45662559
+[onPrepare] Sending PROMISE to M2
+[sendMessageToAddress] Sent PROMISE from M8 to localhost:9002
+[acceptLoop]M8 accepted connection from /127.0.0.1:45226
+[onAcceptRequest] Received ACCEPT_REQUEST from M2 proposalNumber=-45662559
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45662559
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9003
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[acceptLoop]M8 accepted connection from /127.0.0.1:45230
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45662559
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45662559 value=M2
+[acceptLoop]M8 accepted connection from /127.0.0.1:45238
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45662559
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45662559 value=M2
+[acceptLoop]M8 accepted connection from /127.0.0.1:45252
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45662559
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45662559 value=M2
+[acceptLoop]M8 accepted connection from /127.0.0.1:45262
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45662559
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45662559 value=M2
+[acceptLoop]M8 accepted connection from /127.0.0.1:45274
+[acceptLoop]M8 accepted connection from /127.0.0.1:45282
+[onDecide] CONSENSUS: M2
+[broadcast] Broadcasting LEARN from M8 to M1
+[broadcast] Broadcasting LEARN from M8 to M2
+[broadcast] Broadcasting LEARN from M8 to M3
+[broadcast] Broadcasting LEARN from M8 to M4
+[broadcast] Broadcasting LEARN from M8 to M5
+[acceptLoop]M8 accepted connection from /127.0.0.1:45296
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9001
+[broadcast] Broadcasting LEARN from M8 to M6
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9003
+[broadcast] Broadcasting LEARN from M8 to M7
+[broadcast] Broadcasting LEARN from M8 to M9
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9002
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9007
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9006
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9005
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9004
+[acceptLoop]M8 accepted connection from /127.0.0.1:45298
+[acceptLoop]M8 accepted connection from /127.0.0.1:45300
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9009
+[acceptLoop]M8 accepted connection from /127.0.0.1:45314
+[acceptLoop]M8 accepted connection from /127.0.0.1:45322
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45662559
+[acceptLoop]M8 accepted connection from /127.0.0.1:45328
+[onAcceptRequest] Received ACCEPT_REQUEST from M2 proposalNumber=-45662559
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45662559
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9003
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007
+[acceptLoop]M8 accepted connection from /127.0.0.1:45332
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45662559
+[acceptLoop]M8 accepted connection from /127.0.0.1:45340
+[acceptLoop]M8 accepted connection from /127.0.0.1:45344
+[onAcceptRequest] Received ACCEPT_REQUEST from M2 proposalNumber=-45662559
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45662559
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9003
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45662559
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007
+[acceptLoop]M8 accepted connection from /127.0.0.1:45354
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45662559
+[acceptLoop]M8 accepted connection from /127.0.0.1:45356
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45662559
+[acceptLoop]M8 accepted connection from /127.0.0.1:45362
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45662559
+[acceptLoop]M8 accepted connection from /127.0.0.1:45364
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45662559
+[acceptLoop]M8 accepted connection from /127.0.0.1:45372
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45662559
+[acceptLoop]M8 accepted connection from /127.0.0.1:45380
+[onAcceptRequest] Received ACCEPT_REQUEST from M2 proposalNumber=-45662559
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45662559
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9003
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007

@@ -1,0 +1,137 @@
+Starting Paxos Member: M2 with profile: LATENT
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M2 listening on port 9002
+[main] Node ready. Type a value to propose:
+[acceptLoop]M2 accepted connection from /127.0.0.1:53982
+[initiateProposal] Node M2 initiating proposal for: M2
+Proposer M2 starting PREPARE phase with proposalNumber=-45662559
+[broadcast] Broadcasting PREPARE from M2 to M1
+[broadcast] Broadcasting PREPARE from M2 to M3
+[broadcast] Broadcasting PREPARE from M2 to M4
+[broadcast] Broadcasting PREPARE from M2 to M5
+[broadcast] Broadcasting PREPARE from M2 to M6
+[broadcast] Broadcasting PREPARE from M2 to M7
+[broadcast] Broadcasting PREPARE from M2 to M8
+[broadcast] Broadcasting PREPARE from M2 to M9
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9003
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9009
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9007
+[acceptLoop]M2 accepted connection from /127.0.0.1:53994
+[acceptLoop]M2 accepted connection from /127.0.0.1:54004
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9005
+[acceptLoop]M2 accepted connection from /127.0.0.1:54020
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9008
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9004
+[acceptLoop]M2 accepted connection from /127.0.0.1:54026
+[acceptLoop]M2 accepted connection from /127.0.0.1:54036
+[handlePromise] Received PROMISE from M9 for proposalNumber=-45662559
+[handlePromise] Received PROMISE from M5 for proposalNumber=-45662559
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9001
+[sendMessageToAddress] Sent PREPARE from M2 to localhost:9006
+[acceptLoop]M2 accepted connection from /127.0.0.1:54038
+[acceptLoop]M2 accepted connection from /127.0.0.1:54042
+[handlePromise] Received PROMISE from M7 for proposalNumber=-45662559
+[handlePromise] Received PROMISE from M6 for proposalNumber=-45662559
+[handlePromise] Received PROMISE from M1 for proposalNumber=-45662559
+[whenQuorumPromises] Quorum of PROMISES reached (5/5) — sending ACCEPT_REQUEST with value=M2
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M1
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M3
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M4
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M5
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M6
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M7
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M8
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M9
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9008
+[acceptLoop]M2 accepted connection from /127.0.0.1:54052
+[handlePromise] Received PROMISE from M4 for proposalNumber=-45662559
+[whenQuorumPromises] Quorum of PROMISES reached (6/5) — sending ACCEPT_REQUEST with value=M2
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M1
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M3
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M4
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M5
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M6
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M7
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M8
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M9
+[acceptLoop]M2 accepted connection from /127.0.0.1:54066
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9006
+[acceptLoop]M2 accepted connection from /127.0.0.1:54078
+[handlePromise] Received PROMISE from M8 for proposalNumber=-45662559
+[whenQuorumPromises] Quorum of PROMISES reached (7/5) — sending ACCEPT_REQUEST with value=M2
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M1
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M3
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M4
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M5
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M6
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M7
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M8
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M9
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9005
+[acceptLoop]M2 accepted connection from /127.0.0.1:54088
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45662559
+[onAccepted] Learner M2 received ACCEPTED for proposalNumber=-45662559 value=M2
+[handlePromise] Received PROMISE from M3 for proposalNumber=-45662559
+[whenQuorumPromises] Quorum of PROMISES reached (8/5) — sending ACCEPT_REQUEST with value=M2
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M1
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M3
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M4
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M5
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M6
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M7
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M8
+[broadcast] Broadcasting ACCEPT_REQUEST from M2 to M9
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9009
+[acceptLoop]M2 accepted connection from /127.0.0.1:54102
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9001
+[acceptLoop]M2 accepted connection from /127.0.0.1:54112
+[acceptLoop]M2 accepted connection from /127.0.0.1:54124
+[acceptLoop]M2 accepted connection from /127.0.0.1:54134
+[acceptLoop]M2 accepted connection from /127.0.0.1:54150
+[acceptLoop]M2 accepted connection from /127.0.0.1:54160
+[acceptLoop]M2 accepted connection from /127.0.0.1:54170
+[acceptLoop]M2 accepted connection from /127.0.0.1:54174
+[acceptLoop]M2 accepted connection from /127.0.0.1:54176
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9003
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9006
+[acceptLoop]M2 accepted connection from /127.0.0.1:54184
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9008
+[acceptLoop]M2 accepted connection from /127.0.0.1:54196
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9001
+[acceptLoop]M2 accepted connection from /127.0.0.1:54208
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9004
+[acceptLoop]M2 accepted connection from /127.0.0.1:54214
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9008
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9004
+[acceptLoop]M2 accepted connection from /127.0.0.1:54226
+[acceptLoop]M2 accepted connection from /127.0.0.1:54242
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9007
+[acceptLoop]M2 accepted connection from /127.0.0.1:54246
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9009
+[acceptLoop]M2 accepted connection from /127.0.0.1:54252
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9005
+[acceptLoop]M2 accepted connection from /127.0.0.1:54268
+[onDecide] CONSENSUS: M2
+[broadcast] Broadcasting LEARN from M2 to M1
+[broadcast] Broadcasting LEARN from M2 to M3
+[broadcast] Broadcasting LEARN from M2 to M4
+[broadcast] Broadcasting LEARN from M2 to M5
+[broadcast] Broadcasting LEARN from M2 to M6
+[broadcast] Broadcasting LEARN from M2 to M7
+[broadcast] Broadcasting LEARN from M2 to M8
+[broadcast] Broadcasting LEARN from M2 to M9
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9004
+[acceptLoop]M2 accepted connection from /127.0.0.1:54280
+[handleAccepted] Received ACCEPTED from M8 for proposalNumber=-45662559
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9008
+[acceptLoop]M2 accepted connection from /127.0.0.1:54284
+[sendMessageToAddress] Sent ACCEPT_REQUEST from M2 to localhost:9007

@@ -1,0 +1,91 @@
+Starting Paxos Member: M4 with profile: RELIABLE
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M4 listening on port 9004
+[main] Node ready. Type a value to propose:
+[acceptLoop]M4 accepted connection from /127.0.0.1:37116
+[acceptLoop]M4 accepted connection from /127.0.0.1:37122
+[onPrepare] Received PREPARE from M1 with proposalNumber=-45673284
+[onPrepare] Sending PROMISE to M1
+[onPrepare] Received PREPARE from M2 with proposalNumber=-45673284
+[onPrepare] Ignoring PREPARE as higher proposal number seen highest:-45673284 seen:-45673284
+[sendMessageToAddress] Sent PROMISE from M4 to localhost:9001
+[acceptLoop]M4 accepted connection from /127.0.0.1:37126
+[onAcceptRequest] Received ACCEPT_REQUEST from M2 proposalNumber=-45673284
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45673284
+[acceptLoop]M4 accepted connection from /127.0.0.1:37134
+[acceptLoop]M4 accepted connection from /127.0.0.1:37138
+[acceptLoop]M4 accepted connection from /127.0.0.1:37146
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45673284
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45673284
+[onAccepted] Learner M4 received ACCEPTED for proposalNumber=-45673284 value=M2
+[onAccepted] Learner M4 received ACCEPTED for proposalNumber=-45673284 value=M2
+[broadcast] Broadcasting ACCEPTED from M4 to M1
+[broadcast] Broadcasting ACCEPTED from M4 to M2
+[broadcast] Broadcasting ACCEPTED from M4 to M3
+[acceptLoop]M4 accepted connection from /127.0.0.1:37162
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45673284
+[onAccepted] Learner M4 received ACCEPTED for proposalNumber=-45673284 value=M2
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9001
+[broadcast] Broadcasting ACCEPTED from M4 to M5
+[broadcast] Broadcasting ACCEPTED from M4 to M6
+[broadcast] Broadcasting ACCEPTED from M4 to M7
+[broadcast] Broadcasting ACCEPTED from M4 to M8
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9002
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9007
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45673284
+[onAccepted] Learner M4 received ACCEPTED for proposalNumber=-45673284 value=M2
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9006
+[broadcast] Broadcasting ACCEPTED from M4 to M9
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9003
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9005
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9008
+[sendMessageToAddress] Sent ACCEPTED from M4 to localhost:9009
+[acceptLoop]M4 accepted connection from /127.0.0.1:37164
+[handleAccepted] Received ACCEPTED from M3 for proposalNumber=-45673284
+[onAccepted] Learner M4 received ACCEPTED for proposalNumber=-45673284 value=M2
+[acceptLoop]M4 accepted connection from /127.0.0.1:37174
+[acceptLoop]M4 accepted connection from /127.0.0.1:37188
+[onAccepted] Majority reached for proposalNumber=-45673284 with value=M2 (5/5)
+[onDecide] CONSENSUS: M2
+[broadcast] Broadcasting LEARN from M4 to M1
+[broadcast] Broadcasting LEARN from M4 to M2
+[broadcast] Broadcasting LEARN from M4 to M3
+[broadcast] Broadcasting LEARN from M4 to M5
+[broadcast] Broadcasting LEARN from M4 to M6
+[broadcast] Broadcasting LEARN from M4 to M7
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45673284
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9005
+[acceptLoop]M4 accepted connection from /127.0.0.1:37200
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9001
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9002
+[handleAccepted] Received ACCEPTED from M8 for proposalNumber=-45673284
+[acceptLoop]M4 accepted connection from /127.0.0.1:37216
+[broadcast] Broadcasting LEARN from M4 to M8
+[broadcast] Broadcasting LEARN from M4 to M9
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9008
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9003
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9006
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9007
+[sendMessageToAddress] Sent LEARN from M4 to localhost:9009
+[acceptLoop]M4 accepted connection from /127.0.0.1:37218
+[acceptLoop]M4 accepted connection from /127.0.0.1:37220
+[acceptLoop]M4 accepted connection from /127.0.0.1:37230
+[acceptLoop]M4 accepted connection from /127.0.0.1:37234
+[acceptLoop]M4 accepted connection from /127.0.0.1:37246
+[acceptLoop]M4 accepted connection from /127.0.0.1:37250
+[acceptLoop]M4 accepted connection from /127.0.0.1:37264
+[acceptLoop]M4 accepted connection from /127.0.0.1:37270
+[acceptLoop]M4 accepted connection from /127.0.0.1:37274
+[acceptLoop]M4 accepted connection from /127.0.0.1:37290
+[acceptLoop]M4 accepted connection from /127.0.0.1:37296
+[acceptLoop]M4 accepted connection from /127.0.0.1:37304
+[acceptLoop]M4 accepted connection from /127.0.0.1:37312

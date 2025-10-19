@@ -1,0 +1,91 @@
+Starting Paxos Member: M6 with profile: RELIABLE
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M6 listening on port 9006
+[main] Node ready. Type a value to propose:
+[acceptLoop]M6 accepted connection from /127.0.0.1:57748
+[acceptLoop]M6 accepted connection from /127.0.0.1:57764
+[onPrepare] Received PREPARE from M1 with proposalNumber=-45673284
+[onPrepare] Sending PROMISE to M1
+[onPrepare] Received PREPARE from M2 with proposalNumber=-45673284
+[onPrepare] Ignoring PREPARE as higher proposal number seen highest:-45673284 seen:-45673284
+[sendMessageToAddress] Sent PROMISE from M6 to localhost:9001
+[acceptLoop]M6 accepted connection from /127.0.0.1:57780
+[onAcceptRequest] Received ACCEPT_REQUEST from M2 proposalNumber=-45673284
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45673284
+[broadcast] Broadcasting ACCEPTED from M6 to M1
+[broadcast] Broadcasting ACCEPTED from M6 to M2
+[broadcast] Broadcasting ACCEPTED from M6 to M3
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9001
+[broadcast] Broadcasting ACCEPTED from M6 to M4
+[broadcast] Broadcasting ACCEPTED from M6 to M5
+[acceptLoop]M6 accepted connection from /127.0.0.1:57790
+[broadcast] Broadcasting ACCEPTED from M6 to M7
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9003
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9002
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9005
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9004
+[broadcast] Broadcasting ACCEPTED from M6 to M8
+[broadcast] Broadcasting ACCEPTED from M6 to M9
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9009
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9007
+[sendMessageToAddress] Sent ACCEPTED from M6 to localhost:9008
+[acceptLoop]M6 accepted connection from /127.0.0.1:57792
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45673284
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45673284
+[onAccepted] Learner M6 received ACCEPTED for proposalNumber=-45673284 value=M2
+[onAccepted] Learner M6 received ACCEPTED for proposalNumber=-45673284 value=M2
+[acceptLoop]M6 accepted connection from /127.0.0.1:57800
+[acceptLoop]M6 accepted connection from /127.0.0.1:57816
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45673284
+[onAccepted] Learner M6 received ACCEPTED for proposalNumber=-45673284 value=M2
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45673284
+[onAccepted] Learner M6 received ACCEPTED for proposalNumber=-45673284 value=M2
+[acceptLoop]M6 accepted connection from /127.0.0.1:57832
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45673284
+[onAccepted] Learner M6 received ACCEPTED for proposalNumber=-45673284 value=M2
+[acceptLoop]M6 accepted connection from /127.0.0.1:57836
+[acceptLoop]M6 accepted connection from /127.0.0.1:57844
+[acceptLoop]M6 accepted connection from /127.0.0.1:57848
+[acceptLoop]M6 accepted connection from /127.0.0.1:57850
+[acceptLoop]M6 accepted connection from /127.0.0.1:57858
+[handleAccepted] Received ACCEPTED from M8 for proposalNumber=-45673284
+[acceptLoop]M6 accepted connection from /127.0.0.1:57868
+[acceptLoop]M6 accepted connection from /127.0.0.1:57874
+[acceptLoop]M6 accepted connection from /127.0.0.1:57884
+[handleAccepted] Received ACCEPTED from M3 for proposalNumber=-45673284
+[acceptLoop]M6 accepted connection from /127.0.0.1:57890
+[acceptLoop]M6 accepted connection from /127.0.0.1:57898
+[acceptLoop]M6 accepted connection from /127.0.0.1:57912
+[acceptLoop]M6 accepted connection from /127.0.0.1:57922
+[acceptLoop]M6 accepted connection from /127.0.0.1:57934
+[acceptLoop]M6 accepted connection from /127.0.0.1:57936
+[onAccepted] Majority reached for proposalNumber=-45673284 with value=M2 (5/5)
+[onDecide] CONSENSUS: M2
+[broadcast] Broadcasting LEARN from M6 to M1
+[broadcast] Broadcasting LEARN from M6 to M2
+[broadcast] Broadcasting LEARN from M6 to M3
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9001
+[broadcast] Broadcasting LEARN from M6 to M4
+[broadcast] Broadcasting LEARN from M6 to M5
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9002
+[acceptLoop]M6 accepted connection from /127.0.0.1:57940
+[broadcast] Broadcasting LEARN from M6 to M7
+[broadcast] Broadcasting LEARN from M6 to M8
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9005
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9007
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9003
+[broadcast] Broadcasting LEARN from M6 to M9
+[acceptLoop]M6 accepted connection from /127.0.0.1:57952
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9004
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9009
+[sendMessageToAddress] Sent LEARN from M6 to localhost:9008
+[acceptLoop]M6 accepted connection from /127.0.0.1:57956

@@ -1,0 +1,57 @@
+Starting Paxos Member: M3 with profile: FAILING
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M3 listening on port 9003
+[main] Node ready. Type a value to propose:
+[acceptLoop]M3 accepted connection from /127.0.0.1:55218
+[onPrepare] Received PREPARE from M2 with proposalNumber=-45662559
+[onPrepare] Sending PROMISE to M2
+[acceptLoop]M3 accepted connection from /127.0.0.1:55230
+[sendMessageToAddress] Sent PROMISE from M3 to localhost:9002
+[acceptLoop]M3 accepted connection from /127.0.0.1:55244
+[handleClient] Simulating dropped message
+[acceptLoop]M3 accepted connection from /127.0.0.1:55248
+[handleClient] Simulating dropped message
+[acceptLoop]M3 accepted connection from /127.0.0.1:55256
+[acceptLoop]M3 accepted connection from /127.0.0.1:55264
+[acceptLoop]M3 accepted connection from /127.0.0.1:55268
+[acceptLoop]M3 accepted connection from /127.0.0.1:55276
+[acceptLoop]M3 accepted connection from /127.0.0.1:55290
+[acceptLoop]M3 accepted connection from /127.0.0.1:55300
+[acceptLoop]M3 accepted connection from /127.0.0.1:55306
+[acceptLoop]M3 accepted connection from /127.0.0.1:55312
+[acceptLoop]M3 accepted connection from /127.0.0.1:55316
+[acceptLoop]M3 accepted connection from /127.0.0.1:55332
+[acceptLoop]M3 accepted connection from /127.0.0.1:55334
+[acceptLoop]M3 accepted connection from /127.0.0.1:55348
+[acceptLoop]M3 accepted connection from /127.0.0.1:55362
+[onDecide] CONSENSUS: M2
+[acceptLoop]M3 accepted connection from /127.0.0.1:55366
+[broadcast] Broadcasting LEARN from M3 to M1
+[broadcast] Broadcasting LEARN from M3 to M2
+[broadcast] Broadcasting LEARN from M3 to M4
+[broadcast] Broadcasting LEARN from M3 to M5
+[acceptLoop]M3 accepted connection from /127.0.0.1:55368
+[broadcast] Broadcasting LEARN from M3 to M6
+[handleClient] Simulating dropped message
+[broadcast] Broadcasting LEARN from M3 to M7
+[broadcast] Broadcasting LEARN from M3 to M8
+[acceptLoop]M3 accepted connection from /127.0.0.1:55374
+[broadcast] Broadcasting LEARN from M3 to M9
+[acceptLoop]M3 accepted connection from /127.0.0.1:55380
+[handleAccepted] Received ACCEPTED from M8 for proposalNumber=-45662559
+[acceptLoop]M3 accepted connection from /127.0.0.1:55396
+[acceptLoop]M3 accepted connection from /127.0.0.1:55406
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45662559
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45662559
+[acceptLoop]M3 accepted connection from /127.0.0.1:55416
+[acceptLoop]M3 accepted connection from /127.0.0.1:55428
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45662559

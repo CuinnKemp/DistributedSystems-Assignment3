@@ -13,7 +13,8 @@ BASE_PORT=9001
 NODE_COUNT=9
 LOG_DIR="./logs/${TEST_NAME}"
 M4_Value="M4"
-WAIT_TIME=15
+WAIT_TIME=10
+CHECK_INTERVAL=0.1
 
 PROFILES=("RELIABLE" "LATENT" "FAILING" "STANDARD" "STANDARD" "STANDARD" "STANDARD" "STANDARD" "STANDARD")
 
@@ -31,37 +32,51 @@ for i in $(seq 1 $NODE_COUNT); do
 done
 
 # Wait for nodes to be ready
-sleep 5
+sleep 1
 
 echo "{\"type\":\"VALUE\",\"proposalValue\":\"$M4_Value\"}" | nc -w 1 localhost 9004
 
 # Wait for consensus
-echo "Waiting $WAIT_TIME seconds for consensus..."
-sleep $WAIT_TIME
+START_TIME=$(date +%s)
+declare -A LEARN_TIMES
+declare -A LEARN_VALUES
 
-# Fetch learned values
-LEARNED=""  # Initialize empty string to store the consensus value
-for i in $(seq 1 $NODE_COUNT); do
-    NODE="M$i"
-    LOG_FILE="$LOG_DIR/${NODE}.log"
-
-    CUR_LEARNED=$(grep "CONSENSUS:" "$LOG_FILE" | tail -n 1 | awk -F'CONSENSUS: ' '{print $2}')
-
-    if [[ -n "$CUR_LEARNED" ]]; then
-        if [[ -z "$LEARNED" ]]; then
-            LEARNED="$CUR_LEARNED"
-        elif [[ "$LEARNED" != "$CUR_LEARNED" ]]; then
-            echo "$NODE got different value: $CUR_LEARNED"
+# Continuously check logs
+while true; do
+    ALL_LEARNED=true
+    for i in $(seq 1 $NODE_COUNT); do
+        NODE="M$i"
+        LOG_FILE="$LOG_DIR/${NODE}.log"
+        if [[ ! -v LEARN_VALUES["$NODE"] ]]; then
+            CUR_LEARNED=$(grep "CONSENSUS:" "$LOG_FILE" | tail -n 1 | awk -F'CONSENSUS: ' '{print $2}')
+            if [[ -n "$CUR_LEARNED" ]]; then
+                LEARN_VALUES["$NODE"]="$CUR_LEARNED"
+                LEARN_TIMES["$NODE"]=$(($(date +%s) - START_TIME))
+            else
+                ALL_LEARNED=false
+            fi
         fi
-    else
-        echo "$NODE did not learn any value"
+    done
+
+    if $ALL_LEARNED; then
+        break
     fi
+
+    CURRENT_TIME=$(date +%s)
+    if (( CURRENT_TIME - START_TIME > WAIT_TIME )); then
+        echo "Not all nodes learned a value"
+        break
+    fi
+
+    sleep $CHECK_INTERVAL
 done
 
-if [[ -n "$LEARNED" ]]; then
-    echo "CONSENSUS VALUE: $LEARNED"
+# Summarize results
+VALUES=($(printf "%s\n" "${LEARN_VALUES[@]}" | sort -u))
+if [[ ${#VALUES[@]} -eq 1 ]]; then
+    echo "All nodes agreed on value: ${VALUES[0]}"
 else
-    echo "No consensus value learned by any node"
+    echo "Not All nodes agreed on a value"
 fi
 
 # Kill all nodes

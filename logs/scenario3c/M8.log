@@ -1,0 +1,207 @@
+Starting Paxos Member: M8 with profile: RELIABLE
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M8 listening on port 9008
+[main] Node ready. Type a value to propose:
+[acceptLoop]M8 accepted connection from /127.0.0.1:41434
+[onPrepare] Received PREPARE from M3 with proposalNumber=-45655359
+[onPrepare] Sending PROMISE to M3
+[sendMessageToAddress] Sent PROMISE from M8 to localhost:9003
+[acceptLoop]M8 accepted connection from /127.0.0.1:41442
+[onPrepare] Received PREPARE from M7 with proposalNumber=-45649690
+[onPrepare] Sending PROMISE to M7
+[sendMessageToAddress] Sent PROMISE from M8 to localhost:9007
+[acceptLoop]M8 accepted connection from /127.0.0.1:41450
+[onAcceptRequest] Received ACCEPT_REQUEST from M7 proposalNumber=-45649690
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45649690
+[acceptLoop]M8 accepted connection from /127.0.0.1:41454
+[onAcceptRequest] Received ACCEPT_REQUEST from M7 proposalNumber=-45649690
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 59ms
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[acceptLoop]M8 accepted connection from /127.0.0.1:41458
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45649690
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[acceptLoop]M8 accepted connection from /127.0.0.1:41466
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 2ms
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[acceptLoop]M8 accepted connection from /127.0.0.1:41468
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45649690
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45649690 value=M7
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 174ms
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45649690
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45649690 value=M7
+[acceptLoop]M8 accepted connection from /127.0.0.1:41482
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45649690
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45649690 value=M7
+[acceptLoop]M8 accepted connection from /127.0.0.1:41496
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45649690
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45649690 value=M7
+[acceptLoop]M8 accepted connection from /127.0.0.1:41512
+[acceptLoop]M8 accepted connection from /127.0.0.1:41518
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45649690
+[onAccepted] Learner M8 received ACCEPTED for proposalNumber=-45649690 value=M7
+[acceptLoop]M8 accepted connection from /127.0.0.1:41530
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45649690
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 195ms
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45649690
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45649690
+[acceptLoop]M8 accepted connection from /127.0.0.1:41538
+[acceptLoop]M8 accepted connection from /127.0.0.1:41554
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45649690
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45649690
+[acceptLoop]M8 accepted connection from /127.0.0.1:41560
+[onPrepare] Received PREPARE from M9 with proposalNumber=-45649564
+[onPrepare] Sending PROMISE to M9
+[sendMessageToAddress] Sent PROMISE from M8 to localhost:9009
+[onAccepted] Majority reached for proposalNumber=-45649690 with value=M7 (5/5)
+[onDecide] CONSENSUS: M7
+[broadcast] Broadcasting LEARN from M8 to M1
+[broadcast] Broadcasting LEARN from M8 to M2
+[broadcast] Broadcasting LEARN from M8 to M3
+[broadcast] Broadcasting LEARN from M8 to M4
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9001
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9002
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 59ms
+[broadcast] Broadcasting LEARN from M8 to M5
+[broadcast] Broadcasting LEARN from M8 to M6
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9004
+[broadcast] Broadcasting LEARN from M8 to M7
+[broadcast] Broadcasting LEARN from M8 to M9
+[acceptLoop]M8 accepted connection from /127.0.0.1:41570
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9007
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9009
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9005
+[sendMessageToAddress] Sent LEARN from M8 to localhost:9006
+[acceptLoop]M8 accepted connection from /127.0.0.1:41574
+[onPrepare] Received PREPARE from M4 with proposalNumber=-45649542
+[onPrepare] Sending PROMISE to M4
+[acceptLoop]M8 accepted connection from /127.0.0.1:41576
+[sendMessageToAddress] Sent PROMISE from M8 to localhost:9004
+[acceptLoop]M8 accepted connection from /127.0.0.1:41582
+[acceptLoop]M8 accepted connection from /127.0.0.1:41592
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 77ms
+[acceptLoop]M8 accepted connection from /127.0.0.1:41606
+[acceptLoop]M8 accepted connection from /127.0.0.1:41614
+[acceptLoop]M8 accepted connection from /127.0.0.1:41630
+[acceptLoop]M8 accepted connection from /127.0.0.1:41646
+[acceptLoop]M8 accepted connection from /127.0.0.1:41644
+[acceptLoop]M8 accepted connection from /127.0.0.1:41658
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 417ms
+[acceptLoop]M8 accepted connection from /127.0.0.1:41668
+[acceptLoop]M8 accepted connection from /127.0.0.1:41684
+[onAcceptRequest] Received ACCEPT_REQUEST from M9 proposalNumber=-45649564
+[onAcceptRequest] Ignoring ACCEPT_REQUEST as higher or equal number seen highest:-45649690 seen:null
+[acceptLoop]M8 accepted connection from /127.0.0.1:41690
+[onAcceptRequest] Received ACCEPT_REQUEST from M9 proposalNumber=-45649564
+[onAcceptRequest] Ignoring ACCEPT_REQUEST as higher or equal number seen highest:-45649690 seen:null
+[acceptLoop]M8 accepted connection from /127.0.0.1:41692
+[acceptLoop]M8 accepted connection from /127.0.0.1:41702
+[acceptLoop]M8 accepted connection from /127.0.0.1:41718
+[acceptLoop]M8 accepted connection from /127.0.0.1:41732
+[acceptLoop]M8 accepted connection from /127.0.0.1:41734
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45649564
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45649542
+[onAcceptRequest] Received ACCEPT_REQUEST from M4 proposalNumber=-45649542
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 105ms
+[acceptLoop]M8 accepted connection from /127.0.0.1:41740
+[acceptLoop]M8 accepted connection from /127.0.0.1:41756
+[acceptLoop]M8 accepted connection from /127.0.0.1:41762
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45649542
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[acceptLoop]M8 accepted connection from /127.0.0.1:41778
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 313ms
+[onAcceptRequest] Received ACCEPT_REQUEST from M4 proposalNumber=-45649542
+[acceptLoop]M8 accepted connection from /127.0.0.1:41780
+[acceptLoop]M8 accepted connection from /127.0.0.1:41796
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45649542
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45649542
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45649542
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45649564
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45649542
+[broadcast] Broadcasting ACCEPTED from M8 to M1
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45649542
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45649542
+[acceptLoop]M8 accepted connection from /127.0.0.1:41806
+[acceptLoop]M8 accepted connection from /127.0.0.1:41810
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[broadcast] Broadcasting ACCEPTED from M8 to M2
+[broadcast] Broadcasting ACCEPTED from M8 to M3
+[broadcast] Broadcasting ACCEPTED from M8 to M4
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45649542
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[acceptLoop]M8 accepted connection from /127.0.0.1:41820
+[broadcast] Broadcasting ACCEPTED from M8 to M5
+[broadcast] Broadcasting ACCEPTED from M8 to M6
+[acceptLoop]M8 accepted connection from /127.0.0.1:41824
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 10ms
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9004
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45649542
+[broadcast] Broadcasting ACCEPTED from M8 to M7
+[broadcast] Broadcasting ACCEPTED from M8 to M9
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45649542
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45649542
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 161ms
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9007
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9009
+[acceptLoop]M8 accepted connection from /127.0.0.1:41826
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9001
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9002
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M8 to localhost:9005
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 50ms
+[acceptLoop]M8 accepted connection from /127.0.0.1:41842
+[acceptLoop]M8 accepted connection from /127.0.0.1:41844
+[acceptLoop]M8 accepted connection from /127.0.0.1:41856
+[acceptLoop]M8 accepted connection from /127.0.0.1:41872
+[acceptLoop]M8 accepted connection from /127.0.0.1:41884
+[acceptLoop]M8 accepted connection from /127.0.0.1:41888
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 86ms
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 380ms
+[sendMessageToAddress] Failed to send message to localhost/127.0.0.1:9003 trying again after 200ms

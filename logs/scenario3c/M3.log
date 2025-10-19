@@ -1,0 +1,42 @@
+Starting Paxos Member: M3 with profile: FAILING
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M3 listening on port 9003
+[main] Node ready. Type a value to propose:
+[acceptLoop]M3 accepted connection from /127.0.0.1:51902
+[initiateProposal] Node M3 initiating proposal for: M3
+Proposer M3 starting PREPARE phase with proposalNumber=-45655359
+[broadcast] Broadcasting PREPARE from M3 to M1
+[broadcast] Broadcasting PREPARE from M3 to M2
+[broadcast] Broadcasting PREPARE from M3 to M4
+[broadcast] Broadcasting PREPARE from M3 to M5
+[broadcast] Broadcasting PREPARE from M3 to M6
+[broadcast] Broadcasting PREPARE from M3 to M7
+[broadcast] Broadcasting PREPARE from M3 to M8
+[broadcast] Broadcasting PREPARE from M3 to M9
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9007
+[acceptLoop]M3 accepted connection from /127.0.0.1:51912
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9009
+[acceptLoop]M3 accepted connection from /127.0.0.1:51922
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9006
+[acceptLoop]M3 accepted connection from /127.0.0.1:51936
+[handlePromise] Received PROMISE from M7 for proposalNumber=-45655359
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9001
+[acceptLoop]M3 accepted connection from /127.0.0.1:51946
+[handleClient] Simulating dropped message
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9005
+[acceptLoop]M3 accepted connection from /127.0.0.1:51962
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9004
+[acceptLoop]M3 accepted connection from /127.0.0.1:51968
+[handlePromise] Received PROMISE from M6 for proposalNumber=-45655359
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9008
+[sendMessageToAddress] Sent PREPARE from M3 to localhost:9002
+[sendMessageToAddress] Simulating crash

@@ -1,0 +1,74 @@
+Starting Paxos Member: M2 with profile: LATENT
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M2 listening on port 9002
+[main] Node ready. Type a value to propose:
+[acceptLoop]M2 accepted connection from /127.0.0.1:53110
+[acceptLoop]M2 accepted connection from /127.0.0.1:53120
+[acceptLoop]M2 accepted connection from /127.0.0.1:53136
+[acceptLoop]M2 accepted connection from /127.0.0.1:53144
+[acceptLoop]M2 accepted connection from /127.0.0.1:53154
+[acceptLoop]M2 accepted connection from /127.0.0.1:53170
+[acceptLoop]M2 accepted connection from /127.0.0.1:53172
+[acceptLoop]M2 accepted connection from /127.0.0.1:53184
+[acceptLoop]M2 accepted connection from /127.0.0.1:53196
+[acceptLoop]M2 accepted connection from /127.0.0.1:53206
+[acceptLoop]M2 accepted connection from /127.0.0.1:53210
+[acceptLoop]M2 accepted connection from /127.0.0.1:53222
+[acceptLoop]M2 accepted connection from /127.0.0.1:53234
+[acceptLoop]M2 accepted connection from /127.0.0.1:53242
+[acceptLoop]M2 accepted connection from /127.0.0.1:53250
+[acceptLoop]M2 accepted connection from /127.0.0.1:53266
+[acceptLoop]M2 accepted connection from /127.0.0.1:53276
+[acceptLoop]M2 accepted connection from /127.0.0.1:53292
+[acceptLoop]M2 accepted connection from /127.0.0.1:53298
+[acceptLoop]M2 accepted connection from /127.0.0.1:53304
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45668154
+[acceptLoop]M2 accepted connection from /127.0.0.1:53314
+[acceptLoop]M2 accepted connection from /127.0.0.1:53328
+[onPrepare] Received PREPARE from M4 with proposalNumber=-45668154
+[acceptLoop]M2 accepted connection from /127.0.0.1:53340
+[onPrepare] Sending PROMISE to M4
+[onAcceptRequest] Received ACCEPT_REQUEST from M4 proposalNumber=-45668154
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45668154
+[acceptLoop]M2 accepted connection from /127.0.0.1:53352
+[onAccepted] Learner M2 received ACCEPTED for proposalNumber=-45668154 value=M4
+[broadcast] Broadcasting ACCEPTED from M2 to M1
+[broadcast] Broadcasting ACCEPTED from M2 to M3
+[broadcast] Broadcasting ACCEPTED from M2 to M4
+[acceptLoop]M2 accepted connection from /127.0.0.1:53356
+[broadcast] Broadcasting ACCEPTED from M2 to M5
+[broadcast] Broadcasting ACCEPTED from M2 to M6
+[broadcast] Broadcasting ACCEPTED from M2 to M7
+[broadcast] Broadcasting ACCEPTED from M2 to M8
+[broadcast] Broadcasting ACCEPTED from M2 to M9
+[acceptLoop]M2 accepted connection from /127.0.0.1:53372
+[acceptLoop]M2 accepted connection from /127.0.0.1:53380
+[acceptLoop]M2 accepted connection from /127.0.0.1:53396
+[acceptLoop]M2 accepted connection from /127.0.0.1:53412
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45668154
+[onAccepted] Learner M2 received ACCEPTED for proposalNumber=-45668154 value=M4
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45668154
+[onAccepted] Learner M2 received ACCEPTED for proposalNumber=-45668154 value=M4
+[sendMessageToAddress] Sent PROMISE from M2 to localhost:9004
+[handleAccepted] Received ACCEPTED from M5 for proposalNumber=-45668154
+[onAccepted] Learner M2 received ACCEPTED for proposalNumber=-45668154 value=M4
+[onDecide] CONSENSUS: M4
+[broadcast] Broadcasting LEARN from M2 to M1
+[broadcast] Broadcasting LEARN from M2 to M3
+[acceptLoop]M2 accepted connection from /127.0.0.1:53416
+[broadcast] Broadcasting LEARN from M2 to M4
+[broadcast] Broadcasting LEARN from M2 to M5
+[broadcast] Broadcasting LEARN from M2 to M6
+[broadcast] Broadcasting LEARN from M2 to M7
+[broadcast] Broadcasting LEARN from M2 to M8
+[broadcast] Broadcasting LEARN from M2 to M9
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45668154

@@ -76,7 +76,7 @@ public class Paxos {
      * Called to start a new election/proposal round.
      */
     public void initiateProposal(String candidateName) {
-        Logger.log("Node " + memberId + " initiating proposal for: " + candidateName);
+        Logger.log("[initiateProposal] Node " + memberId + " initiating proposal for: " + candidateName);
         proposer.prepare(candidateName);
     }
 

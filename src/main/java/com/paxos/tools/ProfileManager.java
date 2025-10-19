@@ -29,7 +29,7 @@ public class ProfileManager {
 
     // Failure Chance (i.e. rand < this = DropMessage())
     private final double DROP_PROB = 0.2;
-    private final double CRASH_PROB = 0.9;
+    private final double CRASH_PROB = 1;
 
     private final int memberCount;
 

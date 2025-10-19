@@ -1,0 +1,91 @@
+Starting Paxos Member: M5 with profile: RELIABLE
+[readConfig] Loaded 9 members from config.
+[readConfig] M1 -> localhost/127.0.0.1:9001
+[readConfig] M2 -> localhost/127.0.0.1:9002
+[readConfig] M3 -> localhost/127.0.0.1:9003
+[readConfig] M4 -> localhost/127.0.0.1:9004
+[readConfig] M5 -> localhost/127.0.0.1:9005
+[readConfig] M6 -> localhost/127.0.0.1:9006
+[readConfig] M7 -> localhost/127.0.0.1:9007
+[readConfig] M8 -> localhost/127.0.0.1:9008
+[readConfig] M9 -> localhost/127.0.0.1:9009
+[startServer] NetworkManager for M5 listening on port 9005
+[main] Node ready. Type a value to propose:
+[acceptLoop]M5 accepted connection from /127.0.0.1:33508
+[acceptLoop]M5 accepted connection from /127.0.0.1:33510
+[onPrepare] Received PREPARE from M2 with proposalNumber=-45673284
+[onPrepare] Sending PROMISE to M2
+[onPrepare] Received PREPARE from M1 with proposalNumber=-45673284
+[onPrepare] Ignoring PREPARE as higher proposal number seen highest:-45673284 seen:-45673284
+[sendMessageToAddress] Sent PROMISE from M5 to localhost:9002
+[acceptLoop]M5 accepted connection from /127.0.0.1:33514
+[onAcceptRequest] Received ACCEPT_REQUEST from M2 proposalNumber=-45673284
+[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=-45673284
+[broadcast] Broadcasting ACCEPTED from M5 to M1
+[broadcast] Broadcasting ACCEPTED from M5 to M2
+[broadcast] Broadcasting ACCEPTED from M5 to M3
+[broadcast] Broadcasting ACCEPTED from M5 to M4
+[broadcast] Broadcasting ACCEPTED from M5 to M6
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9004
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9003
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9001
+[acceptLoop]M5 accepted connection from /127.0.0.1:33526
+[acceptLoop]M5 accepted connection from /127.0.0.1:33534
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9002
+[broadcast] Broadcasting ACCEPTED from M5 to M7
+[broadcast] Broadcasting ACCEPTED from M5 to M8
+[broadcast] Broadcasting ACCEPTED from M5 to M9
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9006
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9007
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9008
+[handleAccepted] Received ACCEPTED from M6 for proposalNumber=-45673284
+[onAccepted] Learner M5 received ACCEPTED for proposalNumber=-45673284 value=M2
+[handleAccepted] Received ACCEPTED from M1 for proposalNumber=-45673284
+[onAccepted] Learner M5 received ACCEPTED for proposalNumber=-45673284 value=M2
+[sendMessageToAddress] Sent ACCEPTED from M5 to localhost:9009
+[acceptLoop]M5 accepted connection from /127.0.0.1:33544
+[acceptLoop]M5 accepted connection from /127.0.0.1:33556
+[handleAccepted] Received ACCEPTED from M4 for proposalNumber=-45673284
+[onAccepted] Learner M5 received ACCEPTED for proposalNumber=-45673284 value=M2
+[handleAccepted] Received ACCEPTED from M7 for proposalNumber=-45673284
+[onAccepted] Learner M5 received ACCEPTED for proposalNumber=-45673284 value=M2
+[acceptLoop]M5 accepted connection from /127.0.0.1:33572
+[handleAccepted] Received ACCEPTED from M9 for proposalNumber=-45673284
+[onAccepted] Learner M5 received ACCEPTED for proposalNumber=-45673284 value=M2
+[acceptLoop]M5 accepted connection from /127.0.0.1:33582
+[acceptLoop]M5 accepted connection from /127.0.0.1:33594
+[acceptLoop]M5 accepted connection from /127.0.0.1:33600
+[acceptLoop]M5 accepted connection from /127.0.0.1:33610
+[acceptLoop]M5 accepted connection from /127.0.0.1:33618
+[handleAccepted] Received ACCEPTED from M3 for proposalNumber=-45673284
+[handleAccepted] Received ACCEPTED from M8 for proposalNumber=-45673284
+[acceptLoop]M5 accepted connection from /127.0.0.1:33624
+[acceptLoop]M5 accepted connection from /127.0.0.1:33630
+[onAccepted] Majority reached for proposalNumber=-45673284 with value=M2 (5/5)
+[onDecide] CONSENSUS: M2
+[broadcast] Broadcasting LEARN from M5 to M1
+[acceptLoop]M5 accepted connection from /127.0.0.1:33638
+[acceptLoop]M5 accepted connection from /127.0.0.1:33648
+[broadcast] Broadcasting LEARN from M5 to M2
+[broadcast] Broadcasting LEARN from M5 to M3
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9002
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9001
+[broadcast] Broadcasting LEARN from M5 to M4
+[broadcast] Broadcasting LEARN from M5 to M6
+[broadcast] Broadcasting LEARN from M5 to M7
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9003
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9004
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9006
+[broadcast] Broadcasting LEARN from M5 to M8
+[broadcast] Broadcasting LEARN from M5 to M9
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9007
+[acceptLoop]M5 accepted connection from /127.0.0.1:33656
+[acceptLoop]M5 accepted connection from /127.0.0.1:33672
+[acceptLoop]M5 accepted connection from /127.0.0.1:33680
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9008
+[sendMessageToAddress] Sent LEARN from M5 to localhost:9009
+[acceptLoop]M5 accepted connection from /127.0.0.1:33696
+[acceptLoop]M5 accepted connection from /127.0.0.1:33702
+[acceptLoop]M5 accepted connection from /127.0.0.1:33708
+[acceptLoop]M5 accepted connection from /127.0.0.1:33724
+[acceptLoop]M5 accepted connection from /127.0.0.1:33732
