@@ -5,8 +5,10 @@ import com.paxos.tools.Message;
 import com.paxos.tools.NetworkManager;
 
 import java.io.*;
-import java.time.Instant;
 
+/**
+ * The Acceptor functionality of the PAXOS algorithm
+ */
 public class Acceptor {
     private final Object lock = new Object();
 
@@ -30,41 +32,28 @@ public class Acceptor {
      * @param msg the message that is incoming
      */
     public void onPrepare(Message msg) {
-        Logger.log("Received PREPARE from " + msg.getSender() + " with proposalNumber=" + msg.getProposalNumber());
+        Logger.log("[onPrepare] Received PREPARE from " + msg.getSender() + " with proposalNumber=" + msg.getProposalNumber());
 
         Integer proposedNumber = parseProposalNumber(msg.getProposalNumber());
         if (proposedNumber == null) return;
 
         synchronized (lock) { // lock in case multiple prepares come in at the same time
             if (isHigherProposal(proposedNumber)) {
-                promisedProposalNumber = proposedNumber; // update the promised Number
+                promisedProposalNumber = proposedNumber;
 
                 Message promise = new Message(
                         Message.MessageType.PROMISE,
                         memberId,
                         msg.getProposalNumber(),
-                        null, // proposalValue not needed in PROMISE
-                        acceptedNumber != null ? acceptedNumber.toString() : null,
-                        acceptedValue,
-                        Instant.now()
-                );
-
-                Logger.log("Sending PROMISE to " + msg.getSender());
-                networkManager.sendMessage(msg.getSender(), promise);
-            } else {
-                // Reject with a good ol NACK
-                Message nack = new Message(
-                        Message.MessageType.NACK,
-                        memberId,
-                        msg.getProposalNumber(),
                         null,
                         acceptedNumber != null ? acceptedNumber.toString() : null,
-                        acceptedValue,
-                        Instant.now()
+                        acceptedValue
                 );
 
-                Logger.log("Sending NACK to " + msg.getSender() + " (promised=" + promisedProposalNumber + ")");
-                networkManager.sendMessage(msg.getSender(), nack);
+                Logger.log("[onPrepare] Sending PROMISE to " + msg.getSender());
+                networkManager.sendMessage(msg.getSender(), promise);
+            } else {
+                Logger.log("[onPrepare] Ignoring PREPARE as higher proposal number seen highest:" + promisedProposalNumber + " seen:" + msg.getProposalNumber());
             }
         }
     }
@@ -75,10 +64,10 @@ public class Acceptor {
      * @param msg the message to be handled
      */
     public void onAcceptRequest(Message msg) {
-        Logger.log("Received ACCEPT_REQUEST from " + msg.getSender() + " proposalNumber=" + msg.getProposalNumber());
+        Logger.log("[onAcceptRequest] Received ACCEPT_REQUEST from " + msg.getSender() + " proposalNumber=" + msg.getProposalNumber());
 
         Integer proposedNumber = parseProposalNumber(msg.getProposalNumber());
-        if (proposedNumber == null) return; // invalid message recieved try send a nack back
+        if (proposedNumber == null) return;
 
         synchronized (lock) {
             if (isHigherOrEqualProposal(proposedNumber)) {
@@ -92,25 +81,13 @@ public class Acceptor {
                         msg.getProposalNumber(),
                         msg.getProposalValue(),
                         acceptedNumber != null ? acceptedNumber.toString() : null,
-                        acceptedValue,
-                        Instant.now()
+                        acceptedValue
                 );
 
-                Logger.log("Broadcasting ACCEPTED for proposalNumber=" + msg.getProposalNumber());
+                Logger.log("[onAcceptRequest] Broadcasting ACCEPTED for proposalNumber=" + msg.getProposalNumber());
                 networkManager.broadcast(accepted);
             } else {
-                Message nack = new Message(
-                        Message.MessageType.NACK,
-                        memberId,
-                        msg.getProposalNumber(),
-                        null,
-                        acceptedNumber != null ? acceptedNumber.toString() : null,
-                        acceptedValue,
-                        Instant.now()
-                );
-
-                Logger.log("Sending NACK for lower proposal " + msg.getProposalNumber());
-                networkManager.sendMessage(msg.getSender(), nack);
+                Logger.log("[onAcceptRequest] Ignoring ACCEPT_REQUEST as higher or equal number seen highest:" + acceptedNumber + " seen:" + msg.getAcceptedNumber());
             }
         }
     }
@@ -125,7 +102,7 @@ public class Acceptor {
         try {
             return Integer.parseInt(numStr);
         } catch (NumberFormatException e) {
-            Logger.log("Failed to parse proposal number: " + numStr);
+            Logger.log("[parseProposalNumber] Failed to parse proposal number: " + numStr);
             return null;
         }
     }
@@ -133,13 +110,18 @@ public class Acceptor {
     /**
      * Utility function to compare proposals
      * @param proposalNumber proposed number
-     * @return true if proposal is
+     * @return true if proposal is higher else false
      */
     private boolean isHigherProposal(Integer proposalNumber) {
         return proposalNumber != null &&
                 (promisedProposalNumber == null || proposalNumber > promisedProposalNumber);
     }
 
+    /**
+     * Utility function to compare proposals
+     * @param proposalNumber proposed number
+     * @return true if proposal is higher or equal false otherwise
+     */
     private boolean isHigherOrEqualProposal(Integer proposalNumber) {
         return proposalNumber != null &&
                 (promisedProposalNumber == null || proposalNumber >= promisedProposalNumber);

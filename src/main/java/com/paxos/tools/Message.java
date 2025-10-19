@@ -1,9 +1,11 @@
 package com.paxos.tools;
 
-import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Basic message with all required values
+ */
 public class Message {
     public enum MessageType {
         PREPARE,
@@ -12,6 +14,8 @@ public class Message {
         ACCEPTED,
         NACK,
         LEARN,
+        LEARN_ACK,
+        VALUE
     }
 
     final MessageType type;
@@ -20,7 +24,6 @@ public class Message {
     final String proposalValue;
     final String acceptedNumber;
     final String acceptedValue;
-    final Instant timestamp;
 
     public MessageType getType() {
         return type;
@@ -46,18 +49,13 @@ public class Message {
         return acceptedValue;
     }
 
-    public Instant getTimestamp() {
-        return timestamp;
-    }
-
     public Message(
             MessageType type,
             String sender,
             String proposalNumber,
             String proposalValue,
             String acceptedNumber,
-            String acceptedValue,
-            Instant timestamp
+            String acceptedValue
     ) {
         this.type = type;
         this.sender = sender;
@@ -65,23 +63,30 @@ public class Message {
         this.proposalValue = proposalValue;
         this.acceptedNumber = acceptedNumber;
         this.acceptedValue = acceptedValue;
-        this.timestamp = timestamp;
     }
 
-
+    /**
+     * Creates a json string with the non-null values in the class
+     * @return the json string of all non-null fields
+     */
     public String toString() {
         Map<String, String> componentMap = new HashMap<>();
         componentMap.put("type", type.toString());
-        componentMap.put("sender", sender);
+        if (sender != null) componentMap.put("sender", sender);
         if (proposalNumber != null) componentMap.put("proposalNumber", proposalNumber);
         if (proposalValue != null) componentMap.put("proposalValue", proposalValue);
         if (acceptedNumber != null) componentMap.put("acceptedNumber", acceptedNumber);
         if (acceptedValue != null) componentMap.put("acceptedValue", acceptedValue);
-        if (timestamp != null) componentMap.put("timestamp", timestamp.toString());
 
         return SimpleJsonUtil.stringify(componentMap);
     }
 
+    /**
+     * creates a Message object from a json string
+     *
+     * @param json message in json format
+     * @return A Message object from input json - any non-present value is set to null
+     */
     public static Message fromJson(String json){
         Map<String, String> parsed = SimpleJsonUtil.parse(json);
         return new Message(
@@ -90,8 +95,7 @@ public class Message {
                 parsed.get("proposalNumber"),
                 parsed.get("proposalValue"),
                 parsed.get("acceptedNumber"),
-                parsed.get("acceptedValue"),
-                Instant.parse(parsed.get("timestamp"))
+                parsed.get("acceptedValue")
         );
     }
 

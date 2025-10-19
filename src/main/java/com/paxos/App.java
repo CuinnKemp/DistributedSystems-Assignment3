@@ -10,7 +10,8 @@ import java.io.InputStreamReader;
 public class App {
     public static void main(String[] args) {
         if (args.length < 2) {
-            Logger.log("Usage: java -jar paxos.jar <memberId> [--profile <profile>]");
+            Logger.log("Usage: java -jar paxos.jar <memberId> [--profile <profile>] [--configPath <path2config>]");
+            Logger.log("profile options: 'RELIABLE' 'LATENT' 'FAILING' 'STANDARD'");
             return;
         }
 
@@ -29,18 +30,21 @@ public class App {
             }
         }
 
+        // init the paxos controller
         Paxos paxosManager = new Paxos(memberId, profile, configPath);
 
 
         // Step 4: Console loop to propose values
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Node ready. Type a value to propose (or 'exit'):");
+        System.out.println("[main] Node ready. Type a value to propose:");
 
         while (true) {
             try {
                 String line = console.readLine();
                 if (line == null){
-                    break;
+                    // keep member alive (allows for running in background without stdin)
+                    Thread.sleep(1000);
+                    continue;
                 }
 
                 line = line.trim();
@@ -48,10 +52,13 @@ public class App {
                     break;
                 }
                 if (!line.isEmpty()) {
+                    // start proposal with the value
                     paxosManager.initiateProposal(line);
                 }
             } catch (IOException e) {
                 throw new RuntimeException("Failed to read line " + e);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
 

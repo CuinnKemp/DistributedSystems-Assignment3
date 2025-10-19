@@ -8,6 +8,9 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Holds the Proposer functionality of the PAXOS algorithm
+ */
 public class Proposer {
     private final String memberId;
     private final NetworkManager networkManager;
@@ -28,11 +31,16 @@ public class Proposer {
         this.quorumSize = quorumSize;
     }
 
+    /**
+     * Prepares a proposal with specified value and broadcasts to all members
+     *
+     * @param value value to be proposed
+     */
     public void prepare(String value) {
-        myCounter++;
-        if (value != null) {
-            this.proposalValue = value;
-        }
+        // use time as monotonic increasing value
+        myCounter = (int) Instant.now().toEpochMilli();
+
+        this.proposalValue = value;
 
         Logger.log("Proposer " + memberId + " starting PREPARE phase with proposalNumber=" + myCounter);
 
@@ -40,10 +48,9 @@ public class Proposer {
                 Message.MessageType.PREPARE,
                 memberId,
                 String.valueOf(myCounter),
+                proposalValue,
                 null,
-                null,
-                null,
-                Instant.now()
+                null
         );
 
         pendingPromises.clear();
@@ -51,14 +58,18 @@ public class Proposer {
         networkManager.broadcast(prepare);
     }
 
-
+    /**
+     * Handle promise message from members - will update trackers in order to send the correct proposal value
+     *
+     * @param promise the PROMISE message
+     */
     public void handlePromise(Message promise) {
         String sender = promise.getSender();
-        Logger.log("Received PROMISE from " + sender + " for proposalNumber=" + promise.getProposalNumber());
+        Logger.log("[handlePromise] Received PROMISE from " + sender + " for proposalNumber=" + promise.getProposalNumber());
 
         // Ignore stale promises
         if (!String.valueOf(myCounter).equals(promise.getProposalNumber())) {
-            Logger.log("Ignoring stale PROMISE");
+            Logger.log("[handlePromise] Ignoring stale PROMISE");
             return;
         }
 
@@ -83,23 +94,16 @@ public class Proposer {
         }
     }
 
-    public void handleNack(Message nack) {
-        Logger.log("Received NACK from " + nack.getSender() + " for proposalNumber=" + nack.getProposalNumber());
-
-        if (String.valueOf(myCounter).equals(nack.getProposalNumber())) {
-            abort();
-            Logger.log("Retrying prepare with higher proposal number...");
-            prepare(proposalValue);
-        }
-    }
-
-    public void whenQuorumPromises() {
-        Logger.log("Quorum of PROMISES reached (" + pendingPromises.size() + "/" + quorumSize +
+    /**
+     * When proposer acquires enough promises we send ACCEPT_REQUEST to all members
+     */
+    private void whenQuorumPromises() {
+        Logger.log("[whenQuorumPromises] Quorum of PROMISES reached (" + pendingPromises.size() + "/" + quorumSize +
                 ") — sending ACCEPT_REQUEST with value=" + proposalValue);
 
         if (proposalValue == null) {
-            Logger.log("WARN: proposalValue is null — falling back to previously proposed value");
-            proposalValue = highestAcceptedValueSeen != null ? highestAcceptedValueSeen : "DEFAULT_VALUE";
+            Logger.log("[whenQuorumPromises] WARN: proposalValue is null — falling back to previously proposed value");
+            proposalValue = highestAcceptedValueSeen != null ? highestAcceptedValueSeen : "LOST_VALUE";
         }
 
         Message acceptReq = new Message(
@@ -108,16 +112,18 @@ public class Proposer {
                 String.valueOf(myCounter),
                 proposalValue,
                 null,
-                null,
-                Instant.now()
+                null
         );
 
         networkManager.broadcast(acceptReq);
     }
 
-
+    /**
+     * Handle ACCEPTED message and broadcast LEARN iff pending accepts exceeds quorum size
+     * @param accepted the ACCEPT message from member
+     */
     public void handleAccepted(Message accepted) {
-        Logger.log("Received ACCEPTED from " + accepted.getSender() +
+        Logger.log("[handleAccepted] Received ACCEPTED from " + accepted.getSender() +
                 " for proposalNumber=" + accepted.getProposalNumber());
 
         if (!String.valueOf(myCounter).equals(accepted.getProposalNumber())) return;
@@ -125,7 +131,7 @@ public class Proposer {
         pendingAccepts.put(accepted.getSender(), accepted);
 
         if (pendingAccepts.size() >= quorumSize) {
-            Logger.log("Proposal " + memberId + " " + myCounter + " is CHOSEN with value=" + proposalValue);
+            Logger.log("[handleAccepted] Proposal " + memberId + " " + myCounter + " is CHOSEN with value=" + proposalValue);
 
             Message decide = new Message(
                     Message.MessageType.LEARN,
@@ -133,22 +139,10 @@ public class Proposer {
                     String.valueOf(myCounter),
                     proposalValue, // chosen value
                     null,
-                    null,
-                    Instant.now()
+                    proposalValue
             );
 
             networkManager.broadcast(decide);
         }
-    }
-
-    public void timeoutHandler() {
-        Logger.log("Timeout waiting for quorum, retrying prepare...");
-        prepare(proposalValue);
-    }
-
-    public void abort() {
-        Logger.log("Aborting current proposal " + memberId + " " + myCounter);
-        pendingPromises.clear();
-        pendingAccepts.clear();
     }
 }
